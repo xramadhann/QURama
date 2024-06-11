@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class BottomNavbar extends StatefulWidget {
   final int currentIndex;

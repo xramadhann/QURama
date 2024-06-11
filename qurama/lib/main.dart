@@ -1,4 +1,7 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
+import 'package:qurama/BottomNavbar.dart';
 import 'package:qurama/DzikirView.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,7 +22,39 @@ class QURama extends StatelessWidget {
         textTheme: GoogleFonts.righteousTextTheme(Theme.of(context).textTheme),
       ),
       debugShowCheckedModeBanner: false,
-      home: const dzikir(),
+      home: const MyBottomNavbar(),
+    );
+  }
+}
+
+class MyBottomNavbar extends StatefulWidget {
+  const MyBottomNavbar({super.key});
+
+  @override
+  _MyBottomNavbarState createState() => _MyBottomNavbarState();
+}
+
+class _MyBottomNavbarState extends State<MyBottomNavbar> {
+  int currentIndex = 0;
+
+  final List<Widget> screens = [
+    dzikir(currentIndex: 0),
+  ];
+
+  void onTabTapped(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: screens[currentIndex],
+      bottomNavigationBar: BottomNavbar(
+        currentIndex: currentIndex,
+        onTabTapped: onTabTapped,
+      ),
     );
   }
 }

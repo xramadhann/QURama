@@ -3,7 +3,9 @@
 import 'package:flutter/material.dart';
 
 class dzikir extends StatefulWidget {
-  const dzikir({super.key});
+  final int currentIndex; // Tambahkan variabel currentIndex
+
+  const dzikir({super.key, required this.currentIndex});
 
   @override
   State<dzikir> createState() => _dzikirState();
