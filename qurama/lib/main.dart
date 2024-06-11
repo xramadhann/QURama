@@ -38,7 +38,9 @@ class _MyBottomNavbarState extends State<MyBottomNavbar> {
   int currentIndex = 0;
 
   final List<Widget> screens = [
-    dzikir(currentIndex: 0),
+    const dzikir(currentIndex: 0),
+    const dzikir(currentIndex: 1),
+    const dzikir(currentIndex: 2),
   ];
 
   void onTabTapped(int index) {
