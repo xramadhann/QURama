@@ -14,19 +14,30 @@ class DataDzikir {
 
 const allDataDzikir = [
   DataDzikir(
-    arab:
-        "أَسْتَغْفِرُ اللهَ (٣×) اللَّهُمَّ أَنْتَ السَّلامُ، وَمِنْكَ السَّلَامُ، تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ",
-    latin:
-        "Astaghfirullah (3x) Allahumma anta assalaam, wa minka assalaam, tabaarakta yaa dzal jalaali wal ikraam",
-    arti:
-        "Aku memohon ampun kepada Allah, (3x). Ya Allah, Engkau Mahasejahtera, dan dari-Mu kesejahteraan, Mahasuci Engkau, wahai Rabb Pemilik keagungan dan kemuliaan.",
+    arab: "ٱللَّٰهُ أَكْبَرُ",
+    latin: "allahu 'akbar",
+    arti: "Allah Maha Besar",
+  ),
+  DataDzikir(
+    arab: "سُبْحَانَ ٱللَّٰهِ",
+    latin: "subhan allah",
+    arti: "Maha suci Allah",
+  ),
+  DataDzikir(
+    arab: "ٱلْحَمْدُ لِلَّٰهِ",
+    latin: "alhamdlilah",
+    arti: "Segala puji bagi Allah",
   ),
   DataDzikir(
     arab:
-        "لا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرُ، اللَّهُمَّ لَا مَانِعَ لِمَا أَعْطَيْتَ، وَلَا مُعْطِيَ لِمَا مَنَعْت، وَلَا يَنْفَعُ ذَا الْجَدِ مِنْكَ الْجَدُّ",
-    latin:
-        "Laa ilaaha illa Allahu wahdahu laa syariika lahu, lahul mulku wa lahul hamdu wa huwa 'ala kulli syai'in qadiir, Allahumma laa maani'a limaa a'thaita wa laa mu'thiya limaa mana'ta wa laa dzal jaddi minka aljaddu",
+        "سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلاَ إِلَهَ إِلاَّ اللَّهُ وَاللَّهُ أَكْبَرُ",
+    latin: "subhan allah walhamd lilah wala 'iilah 'iilaa allah wallah 'akbar",
     arti:
-        "Tidak ada ilah yang berhak diibadahi dengan benar melainkan hanya Allah Yang Mahaesa, tidak ada sekutu bagi-Nya. Bagi-Nya segala ke- rajaan dan bagi-Nya segala pujian. Dia Mahakuasa atas segala sesuatu. Ya Allah, tidak ada yang men- cegah apa yang Engkau beri dan tidak ada yang memberi apa yang Engkau cegah. Tidak berguna kekayaan dan kemuliaan itu bagi pemiliknya dari (siksa)-Mu.",
+        "Maha Suci Allah, puji bagi Allah, tidak ada Tuhan selain Allah, dan Allah Maha Besar",
+  ),
+  DataDzikir(
+    arab: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ سُبْحَانَ اللَّه الْعَظِيم",
+    latin: "subhan allah wabihamdih subhan allah aleazim",
+    arti: "Maha Suci Allah dan Segala puji hanya bagi-Nya",
   ),
 ];
