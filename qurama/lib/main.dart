@@ -16,7 +16,7 @@ class QURama extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0x00004258)),
         useMaterial3: true,
         fontFamily: 'Harabara',
-        textTheme: GoogleFonts.alataTextTheme(Theme.of(context).textTheme),
+        textTheme: GoogleFonts.righteousTextTheme(Theme.of(context).textTheme),
       ),
       debugShowCheckedModeBanner: false,
       home: const dzikir(),

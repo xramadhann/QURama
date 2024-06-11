@@ -43,10 +43,11 @@ class _dzikirState extends State<dzikir> {
               height: 200,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
+                padding: const EdgeInsetsDirectional.only(start: 20, end: 20),
                 itemCount: 5,
                 itemBuilder: (context, index) {
                   return Container(
-                    margin: const EdgeInsets.only(left: 10, right: 10),
+                    margin: const EdgeInsets.only(left: 5, right: 5),
                     width: 380,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
@@ -56,13 +57,14 @@ class _dzikirState extends State<dzikir> {
                 },
               ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 20),
             Container(
               margin: const EdgeInsets.only(left: 20, right: 20),
-              height: 20,
-              child: Text(_counter.toString()),
+              height: 100,
+              child: Text(_counter.toString(),
+                  style: const TextStyle(fontSize: 70)),
             ),
-            const SizedBox(height: 70),
+            const SizedBox(height: 30),
             Column(
               children: [
                 GestureDetector(
@@ -70,7 +72,7 @@ class _dzikirState extends State<dzikir> {
                     _decrementCounter();
                   },
                   child: Container(
-                    padding: const EdgeInsets.only(top: 15, left: 55),
+                    padding: const EdgeInsets.only(top: 10, left: 50),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.white,
@@ -85,9 +87,7 @@ class _dzikirState extends State<dzikir> {
                     margin: const EdgeInsets.only(left: 20, right: 20),
                     height: 50,
                     width: 150,
-                    child: const Text(
-                      "Reset",
-                    ),
+                    child: const Text("Reset", style: TextStyle(fontSize: 20)),
                   ),
                 ),
                 const SizedBox(height: 20),
