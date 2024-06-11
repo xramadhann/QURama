@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:qurama/DzikirView.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const QURama());
@@ -11,10 +13,13 @@ class QURama extends StatelessWidget {
     return MaterialApp(
       title: 'QURama',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color(0x00004258)),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0x00004258)),
         useMaterial3: true,
+        fontFamily: 'Harabara',
+        textTheme: GoogleFonts.righteousTextTheme(Theme.of(context).textTheme),
       ),
-      home: const MyHomePage,
+      debugShowCheckedModeBanner: false,
+      home: const dzikir(),
     );
   }
 }
