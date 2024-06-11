@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:qurama/BottomNavbar.dart';
 import 'package:qurama/DzikirView.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:qurama/KiblatView.dart';
 
 void main() {
   runApp(const QURama());
@@ -39,7 +40,7 @@ class _MyBottomNavbarState extends State<MyBottomNavbar> {
 
   final List<Widget> screens = [
     const dzikir(currentIndex: 0),
-    const dzikir(currentIndex: 1),
+    const Kiblat(currentIndex: 1),
     const dzikir(currentIndex: 2),
   ];
 
