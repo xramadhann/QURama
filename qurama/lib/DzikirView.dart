@@ -85,7 +85,9 @@ class _dzikirState extends State<dzikir> {
                     margin: const EdgeInsets.only(left: 20, right: 20),
                     height: 50,
                     width: 150,
-                    child: const Text("Reset"),
+                    child: const Text(
+                      "Reset",
+                    ),
                   ),
                 ),
                 const SizedBox(height: 20),
