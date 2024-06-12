@@ -1,21 +1,18 @@
-// ignore_for_file: camel_case_types, unnecessary_const, unnecessary_import
-
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 
-class qibla extends StatefulWidget {
-  const qibla({super.key, required int currentIndex});
+class Qibla extends StatefulWidget {
+  const Qibla({super.key, required int currentIndex});
 
   @override
-  State<qibla> createState() => _qiblaState();
+  State<Qibla> createState() => _QiblaState();
 }
 
-class _qiblaState extends State<qibla> {
+class _QiblaState extends State<Qibla> {
   double? heading = 0;
-  final double offset = 288 - (-64);
+  final double offset =
+      288 - (-64); // Offset yang diperoleh dari perbedaan heading
 
   @override
   void initState() {
@@ -38,13 +35,9 @@ class _qiblaState extends State<qibla> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Padding(padding: EdgeInsets.all(20.0)),
-            const Text(
-              'qibla',
-              style: TextStyle(fontSize: 40),
-            ),
             Text(
               "${heading!.ceil()}",
-              style: const TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 20),
             ),
             const Padding(padding: EdgeInsets.all(20.0)),
             Stack(
@@ -53,7 +46,7 @@ class _qiblaState extends State<qibla> {
                 Container(
                   padding: const EdgeInsets.all(20.0),
                   child: Transform.rotate(
-                    angle: -((heading ?? 180) * (pi / 180)),
+                    angle: -((heading ?? 180) * (pi / 180) * 1),
                     child: Image.asset("assets/images/compass.png"),
                   ),
                 ),
