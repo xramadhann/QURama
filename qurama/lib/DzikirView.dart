@@ -56,7 +56,7 @@ class _dzikirState extends State<dzikir> {
                   ),
                 ),
                 SizedBox(
-                  height: 250,
+                  height: 230,
                   child: PageView.builder(
                     controller: _pageController,
                     scrollDirection: Axis.horizontal,
@@ -105,7 +105,7 @@ class _dzikirState extends State<dzikir> {
                   ),
                 ),
                 Positioned(
-                  top: 20,
+                  top: 10,
                   left: 0,
                   right: 0,
                   bottom: 0,
