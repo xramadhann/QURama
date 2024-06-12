@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'ModelDzikir.dart';
 
 class dzikir extends StatefulWidget {
@@ -15,6 +16,7 @@ class dzikir extends StatefulWidget {
 
 class _dzikirState extends State<dzikir> {
   int _counter = 0;
+  final PageController _pageController = PageController();
 
   void _incrementCounter() {
     setState(() {
@@ -54,15 +56,14 @@ class _dzikirState extends State<dzikir> {
                   ),
                 ),
                 SizedBox(
-                  height: 290,
-                  child: ListView.builder(
+                  height: 250,
+                  child: PageView.builder(
+                    controller: _pageController,
                     scrollDirection: Axis.horizontal,
-                    padding:
-                        const EdgeInsetsDirectional.only(start: 20, end: 20),
                     itemCount: allDataDzikir.length,
                     itemBuilder: (context, index) {
                       return Container(
-                        margin: const EdgeInsets.only(left: 0, top: 10),
+                        margin: const EdgeInsets.only(left: 0, top: 0),
                         padding: const EdgeInsets.all(20),
                         width: 380,
                         decoration: BoxDecoration(
@@ -101,6 +102,29 @@ class _dzikirState extends State<dzikir> {
                         ),
                       );
                     },
+                  ),
+                ),
+                Positioned(
+                  top: 20,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SmoothPageIndicator(
+                      controller: _pageController,
+                      count: allDataDzikir.length,
+                      effect: const SlideEffect(
+                        spacing: 10.0,
+                        radius: 4.0,
+                        dotWidth: 10.0,
+                        dotHeight: 10.0,
+                        paintStyle: PaintingStyle.stroke,
+                        strokeWidth: 1.5,
+                        dotColor: Colors.white,
+                        activeDotColor: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
               ],
