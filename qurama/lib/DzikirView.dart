@@ -1,7 +1,6 @@
-// ignore_for_file: file_names, camel_case_types, use_super_parameters, unnecessary_const
+// ignore_for_file: file_names, camel_case_types, use_super_parameters, unnecessary_const, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'ModelDzikir.dart';
 
@@ -43,7 +42,7 @@ class _dzikirState extends State<dzikir> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 const SizedBox(
-                  height: 50,
+                  height: 70,
                 ),
                 const Center(
                   child: Text(
@@ -63,7 +62,7 @@ class _dzikirState extends State<dzikir> {
                     itemCount: allDataDzikir.length,
                     itemBuilder: (context, index) {
                       return Container(
-                        margin: const EdgeInsets.only(left: 15, top: 30),
+                        margin: const EdgeInsets.only(left: 0, top: 10),
                         padding: const EdgeInsets.all(20),
                         width: 380,
                         decoration: BoxDecoration(
@@ -112,8 +111,7 @@ class _dzikirState extends State<dzikir> {
             left: 0,
             right: 0,
             child: Container(
-              padding: const EdgeInsets.only(top: 45, left: 20, right: 20),
-              width: 500,
+              width: 600,
               height: 380,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -122,84 +120,79 @@ class _dzikirState extends State<dzikir> {
                 ),
                 color: Colors.white,
               ),
-              child: Column(
+              child: Stack(
                 children: [
                   Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 1,
-                          blurRadius: 5,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    margin: const EdgeInsets.only(left: 20, right: 20),
-                    height: 50,
-                    width: 150,
                     child: Center(
-                      child: Text(
-                        _counter.toString(),
-                        style: const TextStyle(fontSize: 25),
+                      child: Image.asset(
+                        "assets/images/dzikir.png",
+                        height: 380,
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  GestureDetector(
-                    onTap: () {
-                      _incrementCounter();
-                    },
+                  Positioned(
+                    top: 80,
+                    left: (MediaQuery.of(context).size.width - 165) / 2,
+                    width: 165,
+                    height: 60,
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(5),
                         color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
                       ),
-                      margin: const EdgeInsets.only(left: 20, right: 20),
-                      height: 150,
-                      width: 150,
-                      child: const Center(
-                        child: const Icon(
-                          FlutterIslamicIcons.tasbih3,
-                          size: 100,
+                      child: Center(
+                        child: Text(
+                          "$_counter",
+                          style: const TextStyle(
+                            fontSize: 40,
+                            color: Color.fromARGB(255, 0, 66, 88),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  GestureDetector(
-                    onTap: () {
-                      _decrementCounter();
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.only(top: 10, left: 50),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
+                  Positioned(
+                    top: 172,
+                    left: (MediaQuery.of(context).size.width + 103) / 2,
+                    width: 35,
+                    height: 35,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        side: const BorderSide(
+                          color: Colors.white,
+                          width: 1,
+                        ),
                       ),
-                      margin: const EdgeInsets.only(left: 20, right: 20),
-                      height: 50,
-                      width: 150,
-                      child:
-                          const Text("Reset", style: TextStyle(fontSize: 20)),
+                      onPressed: () {
+                        _decrementCounter();
+                      },
+                      child: null,
+                    ),
+                  ),
+                  Positioned(
+                    top: 235,
+                    left: (MediaQuery.of(context).size.width - 90) / 2,
+                    width: 90,
+                    height: 90,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 0, 66, 88),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        side: const BorderSide(
+                          color: Colors.white,
+                          width: 10,
+                        ),
+                      ),
+                      onPressed: () {
+                        _incrementCounter();
+                      },
+                      child: null,
                     ),
                   ),
                 ],
