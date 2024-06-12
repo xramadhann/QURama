@@ -1,6 +1,7 @@
-// ignore_for_file: file_names, camel_case_types, use_super_parameters
+// ignore_for_file: file_names, camel_case_types, use_super_parameters, unnecessary_const
 
 import 'package:flutter/material.dart';
+import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'ModelDzikir.dart';
 
@@ -123,31 +124,26 @@ class _dzikirState extends State<dzikir> {
               ),
               child: Column(
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      _decrementCounter();
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      margin: const EdgeInsets.only(left: 20, right: 20),
-                      height: 50,
-                      width: 150,
-                      child: Center(
-                        child: Text(
-                          _counter.toString(),
-                          style: const TextStyle(fontSize: 25),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 1,
+                          blurRadius: 5,
+                          offset: const Offset(0, 2),
                         ),
+                      ],
+                    ),
+                    margin: const EdgeInsets.only(left: 20, right: 20),
+                    height: 50,
+                    width: 150,
+                    child: Center(
+                      child: Text(
+                        _counter.toString(),
+                        style: const TextStyle(fontSize: 25),
                       ),
                     ),
                   ),
@@ -172,8 +168,11 @@ class _dzikirState extends State<dzikir> {
                       margin: const EdgeInsets.only(left: 20, right: 20),
                       height: 150,
                       width: 150,
-                      child: Center(
-                        child: Image.asset("assets/images/qibla.png"),
+                      child: const Center(
+                        child: const Icon(
+                          FlutterIslamicIcons.tasbih3,
+                          size: 100,
+                        ),
                       ),
                     ),
                   ),

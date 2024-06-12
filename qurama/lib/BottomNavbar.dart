@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 
 class BottomNavbar extends StatefulWidget {
   final int currentIndex;
@@ -42,16 +42,16 @@ class _BottomNavbarState extends State<BottomNavbar> {
                 tabBackgroundColor: Colors.white,
                 tabs: const [
                   GButton(
-                    icon: CupertinoIcons.house_alt,
+                    icon: FlutterIslamicIcons.quran,
                     text: "Beranda",
                     textSize: 20,
                   ),
                   GButton(
-                    icon: CupertinoIcons.compass,
+                    icon: FlutterIslamicIcons.qibla2,
                     text: "Kiblat",
                   ),
                   GButton(
-                    icon: CupertinoIcons.light_max,
+                    icon: FlutterIslamicIcons.tasbih3,
                     text: "Dzikir",
                   ),
                 ],
