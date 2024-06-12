@@ -78,6 +78,22 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_compass:
+    dependency: "direct main"
+    description:
+      name: flutter_compass
+      sha256: be642484f9f6975c1c6edff568281b001f2f1e604de27ecea18d97eebbdef22f
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.8.0"
+  flutter_islamic_icons:
+    dependency: "direct main"
+    description:
+      name: flutter_islamic_icons
+      sha256: e3013fc04cadd49bc9afba00fc51028e5e5daf4657f4988d678f64e62ce63a36
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -96,14 +112,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  go_router:
-    dependency: transitive
-    description:
-      name: go_router
-      sha256: b465e99ce64ba75e61c8c0ce3d87b66d8ac07f0b35d0a7e0263fcfc10f99e836
-      url: "https://pub.dev"
-    source: hosted
-    version: "13.2.5"
   google_fonts:
     dependency: "direct main"
     description:
@@ -200,6 +208,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
+  neumorphic_button:
+    dependency: "direct main"
+    description:
+      name: neumorphic_button
+      sha256: "6ebc849871592e4081fb80cddad35551142e1ca0a50703136d5b2f4422ffe12f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1+2"
   path:
     dependency: transitive
     description:
@@ -256,14 +272,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.1"
-  persistent_bottom_nav_bar_v2:
-    dependency: "direct main"
-    description:
-      name: persistent_bottom_nav_bar_v2
-      sha256: c725f11e0c3d5dad388f8eb9bcfbf701d1a472cad71d2b5fb344ac149e3da7ff
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.2.3"
   platform:
     dependency: transitive
     description:
@@ -280,11 +288,35 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
+  sensors_plus:
+    dependency: "direct main"
+    description:
+      name: sensors_plus
+      sha256: "6898cd4490ffc27fea4de5976585e92fae55355175d46c6c3b3d719d42f9e230"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.1"
+  sensors_plus_platform_interface:
+    dependency: transitive
+    description:
+      name: sensors_plus_platform_interface
+      sha256: bc472d6cfd622acb4f020e726433ee31788b038056691ba433fec80e448a094f
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   sky_engine:
     dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.99"
+  smooth_page_indicator:
+    dependency: "direct main"
+    description:
+      name: smooth_page_indicator
+      sha256: "725bc638d5e79df0c84658e1291449996943f93bacbc2cec49963dbbab48d8ae"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   source_span:
     dependency: transitive
     description:
