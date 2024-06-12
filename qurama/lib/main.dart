@@ -17,10 +17,11 @@ class QURama extends StatelessWidget {
     return MaterialApp(
       title: 'QURama',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0x00004258)),
         useMaterial3: true,
         fontFamily: 'Harabara',
         textTheme: GoogleFonts.righteousTextTheme(Theme.of(context).textTheme),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0x00004258))
+            .copyWith(background: Colors.white),
       ),
       debugShowCheckedModeBanner: false,
       home: const MyBottomNavbar(),

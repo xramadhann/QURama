@@ -37,7 +37,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
                 iconSize: 34,
                 textSize: 20,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                 duration: const Duration(milliseconds: 800),
                 tabBackgroundColor: Colors.white,
                 tabs: const [
