@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
@@ -35,9 +37,13 @@ class _QiblaState extends State<Qibla> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Padding(padding: EdgeInsets.all(20.0)),
+            const Text(
+              "qibla",
+              style: TextStyle(fontSize: 40),
+            ),
             Text(
-              "${heading!.ceil()}",
-              style: TextStyle(fontSize: 20),
+              "${heading!.ceil()}°",
+              style: const TextStyle(fontSize: 20),
             ),
             const Padding(padding: EdgeInsets.all(20.0)),
             Stack(
