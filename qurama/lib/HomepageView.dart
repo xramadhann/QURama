@@ -23,7 +23,7 @@ class _HomepageState extends State<Homepage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 SizedBox(
-                  height: 70,
+                  height: 50,
                 ),
                 Text("Assalamuallaikum",
                     style: TextStyle(fontSize: 25, color: Colors.white)),
@@ -33,26 +33,32 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
           const Positioned(
-            top: 20,
+            top: 110,
             left: 0,
             right: 0,
             bottom: 400,
-            child: Center(
-              child: Text(
-                "19:20",
-                style: TextStyle(fontSize: 80, color: Colors.white),
-              ),
+            child: Column(
+              children: [
+                Text(
+                  "19:20",
+                  style: TextStyle(fontSize: 70, color: Colors.white),
+                ),
+                Text(
+                  "Selasa, 2 Juni 2024",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+              ],
             ),
           ),
           Positioned(
-            top: 250,
+            top: 270,
             left: 0,
             right: 0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: 10, right: 10),
+                  margin: const EdgeInsets.only(left: 10, right: 10),
                   child: const Column(
                     children: [
                       Text(
@@ -73,7 +79,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 10, right: 10),
+                  margin: const EdgeInsets.only(left: 10, right: 10),
                   child: const Column(
                     children: [
                       Text(
@@ -94,7 +100,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 10, right: 10),
+                  margin: const EdgeInsets.only(left: 10, right: 10),
                   child: const Column(
                     children: [
                       Text(
@@ -115,7 +121,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 10, right: 10),
+                  margin: const EdgeInsets.only(left: 10, right: 10),
                   child: const Column(
                     children: [
                       Text(
@@ -136,7 +142,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 10, right: 10),
+                  margin: const EdgeInsets.only(left: 10, right: 10),
                   child: const Column(
                     children: [
                       Text(
@@ -193,7 +199,7 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ),
                   child: ListView.builder(
-                    itemCount: allDataDzikir.length,
+                    itemCount: 2,
                     itemBuilder: (context, index) {
                       return Container(
                         margin: const EdgeInsets.only(
@@ -206,11 +212,30 @@ class _HomepageState extends State<Homepage> {
                           ),
                           color: const Color.fromARGB(255, 0, 66, 88),
                         ),
-                        child: Center(
-                          child: Text(
-                            allDataDzikir[index].latin,
-                            style: const TextStyle(color: Colors.white),
-                          ),
+                        padding: const EdgeInsets.only(
+                          left: 30,
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              allDataDzikir[index].latin,
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 200),
+                              child: SizedBox(
+                                height: 70,
+                                width: 40,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.white,
+                                  ),
+                                  onPressed: () {},
+                                  child: null,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       );
                     },
