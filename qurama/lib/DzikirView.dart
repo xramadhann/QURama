@@ -44,7 +44,7 @@ class _dzikirState extends State<dzikir> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 const SizedBox(
-                  height: 70,
+                  height: 50,
                 ),
                 const Center(
                   child: Text(
