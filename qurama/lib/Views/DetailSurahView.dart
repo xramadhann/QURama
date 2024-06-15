@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, use_super_parameters
+// ignore_for_file: file_names, use_super_parameters, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,13 +35,50 @@ class _DetailSurahState extends State<DetailSurah> {
               borderRadius: BorderRadius.circular(8.0),
               color: const Color.fromARGB(255, 0, 66, 88),
             ),
-            child: Text(
-              widget.surah['nama'],
-              style: GoogleFonts.roboto(
-                fontSize: 40,
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center,
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(top: 70),
+                  child: Text(
+                    widget.surah['nama_latin'],
+                    style: const TextStyle(
+                      fontSize: 40,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    widget.surah['nama'],
+                    style: GoogleFonts.alexandria().copyWith(
+                      fontSize: 40,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    widget.surah['arti'],
+                    style: GoogleFonts.alexandria().copyWith(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    '${widget.surah['jumlah_ayat']} Ayat',
+                    style: GoogleFonts.alexandria().copyWith(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
             ),
           ),
           const SizedBox(height: 10),
