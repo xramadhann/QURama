@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:qurama/Models/ModelSurah.dart';
+import 'package:qurama/Views/DetailSurahView.dart';
 
 class Surah extends StatefulWidget {
   const Surah({super.key, required this.title, required int currentIndex});
@@ -113,7 +114,15 @@ class _SurahState extends State<Surah> {
                                       color: Colors.white),
                                 ),
                               ),
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        DetailSurah(surah: surah),
+                                  ),
+                                );
+                              },
                             ),
                           );
                         },
