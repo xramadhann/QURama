@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
@@ -42,8 +43,13 @@ class _BottomNavbarState extends State<BottomNavbar> {
                 tabBackgroundColor: Colors.white,
                 tabs: const [
                   GButton(
-                    icon: FlutterIslamicIcons.quran,
+                    icon: Icons.home_sharp,
                     text: "Beranda",
+                    textSize: 20,
+                  ),
+                  GButton(
+                    icon: FlutterIslamicIcons.quran,
+                    text: "Surah",
                     textSize: 20,
                   ),
                   GButton(

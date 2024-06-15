@@ -6,6 +6,7 @@ import 'package:qurama/DzikirView.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:qurama/HomepageView.dart';
 import 'package:qurama/QiblaView.dart';
+import 'package:qurama/SurahView.dart';
 
 void main() {
   runApp(const QURama());
@@ -42,8 +43,12 @@ class _MyBottomNavbarState extends State<MyBottomNavbar> {
 
   final List<Widget> screens = [
     const Homepage(currentIndex: 0),
-    const Qibla(currentIndex: 1),
-    const dzikir(currentIndex: 2),
+    const Surah(
+      currentIndex: 1,
+      title: '',
+    ),
+    const Qibla(currentIndex: 2),
+    const dzikir(currentIndex: 3),
   ];
 
   void onTabTapped(int index) {
