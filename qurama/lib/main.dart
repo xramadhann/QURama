@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:qurama/BottomNavbar.dart';
-import 'package:qurama/DzikirView.dart';
+import 'package:qurama/Views/DzikirView.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:qurama/HomepageView.dart';
-import 'package:qurama/QiblaView.dart';
-import 'package:qurama/SurahView.dart';
+import 'package:qurama/Views/HomepageView.dart';
+import 'package:qurama/Views/QiblaView.dart';
+import 'package:qurama/Views/SurahView.dart';
 
 void main() {
   runApp(const QURama());

@@ -43,7 +43,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
                 tabBackgroundColor: Colors.white,
                 tabs: const [
                   GButton(
-                    icon: Icons.home_sharp,
+                    icon: CupertinoIcons.home,
                     text: "Beranda",
                     textSize: 20,
                   ),

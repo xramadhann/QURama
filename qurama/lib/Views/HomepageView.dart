@@ -1,7 +1,7 @@
 // ignore_for_file: file_names, unnecessary_const
 
 import 'package:flutter/material.dart';
-import 'package:qurama/ModelDzikir.dart';
+import 'package:qurama/Models/ModelDzikir.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key, required int currentIndex});
