@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, use_super_parameters
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:qurama/Models/ModelSurah.dart';
 
 class DetailSurah extends StatefulWidget {
@@ -25,64 +26,114 @@ class _DetailSurahState extends State<DetailSurah> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('${widget.surah['nama']} - ${widget.surah['nama_latin']}'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Number of Ayahs: ${widget.surah['jumlah_ayat']}',
-              style: const TextStyle(fontWeight: FontWeight.bold),
+      body: Column(
+        children: [
+          Container(
+            width: 500,
+            height: 300,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8.0),
+              color: const Color.fromARGB(255, 0, 66, 88),
             ),
-            const SizedBox(height: 8.0),
-            Text(
-              'Place of Revelation: ${widget.surah['tempat_turun']}',
-            ),
-            const SizedBox(height: 8.0),
-            Text(
-              'Meaning: ${widget.surah['arti']}',
-            ),
-            const SizedBox(height: 8.0),
-            Text(
-              'Description: ${widget.surah['deskripsi']}',
-              textAlign: TextAlign.justify,
-            ),
-            const SizedBox(height: 16.0),
-            const Text(
-              'Ayat:',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Expanded(
-              child: FutureBuilder<List<dynamic>>(
-                future: _ayahData,
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
-                  } else if (snapshot.hasError) {
-                    return Center(child: Text('Error: ${snapshot.error}'));
-                  } else {
-                    var ayahList = snapshot.data!;
-                    return ListView.builder(
-                      itemCount: ayahList.length,
-                      itemBuilder: (context, index) {
-                        var ayah = ayahList[index];
-                        return ListTile(
-                          title: Text(
-                            '${ayah['idn']}',
-                            textAlign: TextAlign.justify,
-                          ),
-                        );
-                      },
-                    );
-                  }
-                },
+            child: Text(
+              widget.surah['nama'],
+              style: GoogleFonts.roboto(
+                fontSize: 40,
+                color: Colors.white,
               ),
+              textAlign: TextAlign.center,
             ),
-          ],
-        ),
+          ),
+          const SizedBox(height: 10),
+          Expanded(
+            child: FutureBuilder<List<dynamic>>(
+              future: _ayahData,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  return Center(child: Text('Error: ${snapshot.error}'));
+                } else {
+                  var ayahList = snapshot.data!;
+                  return ListView.builder(
+                    itemCount: ayahList.length,
+                    itemBuilder: (context, index) {
+                      var ayah = ayahList[index];
+                      return ListTile(
+                        title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(top: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                                color: const Color.fromARGB(255, 0, 66, 88),
+                              ),
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 10, top: 10, right: 10),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          '${ayah['nomor']}',
+                                          style:
+                                              GoogleFonts.alexandria().copyWith(
+                                            fontSize: 20,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                          textAlign: TextAlign.end,
+                                          overflow: TextOverflow.visible,
+                                        ),
+                                        const SizedBox(
+                                            width:
+                                                10), // Jarak antara nomor ayat dan teks Arab
+                                        Expanded(
+                                          child: Text(
+                                            '${ayah['ar']}',
+                                            style: GoogleFonts.alexandria()
+                                                .copyWith(
+                                              fontSize: 20,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                            textAlign: TextAlign.end,
+                                            overflow: TextOverflow.visible,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 10, top: 10, right: 10),
+                                    child: Text(
+                                      '${ayah['idn']}',
+                                      style: GoogleFonts.alexandria().copyWith(
+                                        fontSize: 14,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      textAlign: TextAlign.start,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                }
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
