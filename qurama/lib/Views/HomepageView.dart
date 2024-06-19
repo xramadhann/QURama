@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:qurama/Models/ModelNews.dart';
+import 'package:qurama/Views/DetailNewsView.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key, required int currentIndex});
@@ -235,7 +236,7 @@ class _HomepageState extends State<Homepage> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          DetailSurah(news: news),
+                                          DetailNews(news: news),
                                     ),
                                   );
                                 },
