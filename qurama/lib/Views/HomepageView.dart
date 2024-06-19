@@ -1,7 +1,8 @@
-// ignore_for_file: file_names, unnecessary_const
+// ignore_for_file: file_names, unnecessary_const, unused_import
 
 import 'package:flutter/material.dart';
-import 'package:qurama/Models/ModelDzikir.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:qurama/Models/ModelNews.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key, required int currentIndex});
@@ -11,6 +12,15 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  late Future<List<dynamic>> _newsData;
+  final NewsService _newsService = NewsService();
+
+  @override
+  void initState() {
+    super.initState();
+    _newsData = _newsService.getNewsData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -189,7 +199,7 @@ class _HomepageState extends State<Homepage> {
                 left: 0,
                 right: 0,
                 child: Container(
-                  margin: const EdgeInsets.only(left: 20, top: 20, right: 20),
+                  margin: const EdgeInsets.only(left: 20, right: 20),
                   width: 200,
                   height: 350,
                   decoration: const BoxDecoration(
@@ -198,71 +208,90 @@ class _HomepageState extends State<Homepage> {
                       topRight: Radius.circular(20),
                     ),
                   ),
-                  child: ListView.builder(
-                    itemCount: 2,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        margin: const EdgeInsets.only(
-                            left: 10, right: 10, bottom: 15),
-                        width: 10,
-                        height: 100,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
+                  child: FutureBuilder<List<dynamic>>(
+                    future: _newsData,
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
+                      } else if (snapshot.hasError) {
+                        return Center(child: Text('Error: ${snapshot.error}'));
+                      } else {
+                        var newsList = snapshot.data!;
+                        return Container(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                            color: Colors.white,
                           ),
-                          color: const Color.fromARGB(255, 0, 66, 88),
-                        ),
-                        padding: const EdgeInsets.only(
-                          left: 30,
-                        ),
-                        child: Row(
-                          children: [
-                            Text(
-                              allDataDzikir[index].latin,
-                              style: const TextStyle(color: Colors.white),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 200),
-                              child: SizedBox(
-                                height: 70,
-                                width: 40,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.white,
+                          child: ListView.builder(
+                            itemCount: 10,
+                            itemBuilder: (context, index) {
+                              var news = newsList[index];
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          DetailSurah(news: news),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  height: 320,
+                                  width: 200,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    color: const Color.fromARGB(255, 0, 66, 88),
                                   ),
-                                  onPressed: () {},
-                                  child: null,
+                                  margin: const EdgeInsets.only(
+                                      left: 10, right: 10, bottom: 20),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      const Padding(padding: EdgeInsets.all(5)),
+                                      if (news['urlToImage'] != null)
+                                        Image.network(
+                                          news['urlToImage'],
+                                          height: 200,
+                                          width: 350,
+                                          fit: BoxFit.cover,
+                                        )
+                                      else
+                                        Image.asset(
+                                          'assets/images/brokeimages.png',
+                                          height: 200,
+                                          width: 350,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 10,
+                                              bottom: 20,
+                                              left: 15,
+                                              right: 10),
+                                          child: Text(
+                                            news['title'],
+                                            style: const TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                                fontSize: 16),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
+                              );
+                            },
+                          ),
+                        );
+                      }
                     },
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: 380,
-                left: 0,
-                right: 0,
-                child: Container(
-                  margin: const EdgeInsets.only(left: 50, top: 10, right: 50),
-                  width: 10,
-                  height: 50,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10),
-                    ),
-                  ),
-                  child: SearchBar(
-                    hintText: "Search",
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                      const EdgeInsets.symmetric(horizontal: 15),
-                    ),
-                    backgroundColor: MaterialStateProperty.all(Colors.white),
-                    leading: const Icon(Icons.search),
                   ),
                 ),
               ),
