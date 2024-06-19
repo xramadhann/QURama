@@ -247,6 +247,14 @@ class _HomepageState extends State<Homepage> {
                                         news['urlToImage'],
                                         height: 200,
                                         width: 350,
+                                        fit: BoxFit.cover,
+                                      )
+                                    else
+                                      Image.asset(
+                                        'assets/images/brokeimages.png',
+                                        height: 200,
+                                        width: 350,
+                                        fit: BoxFit.cover,
                                       ),
                                     Expanded(
                                       child: Padding(
