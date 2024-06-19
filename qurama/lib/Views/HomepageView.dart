@@ -229,50 +229,62 @@ class _HomepageState extends State<Homepage> {
                             itemCount: 10,
                             itemBuilder: (context, index) {
                               var news = newsList[index];
-                              return Container(
-                                height: 320,
-                                width: 200,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  color: const Color.fromARGB(255, 0, 66, 88),
-                                ),
-                                margin: const EdgeInsets.only(
-                                    left: 10, right: 10, bottom: 20),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    const Padding(padding: EdgeInsets.all(5)),
-                                    if (news['urlToImage'] != null)
-                                      Image.network(
-                                        news['urlToImage'],
-                                        height: 200,
-                                        width: 350,
-                                        fit: BoxFit.cover,
-                                      )
-                                    else
-                                      Image.asset(
-                                        'assets/images/brokeimages.png',
-                                        height: 200,
-                                        width: 350,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 10,
-                                            bottom: 20,
-                                            left: 15,
-                                            right: 10),
-                                        child: Text(
-                                          news['title'],
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.white,
-                                              fontSize: 16),
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          DetailSurah(news: news),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  height: 320,
+                                  width: 200,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    color: const Color.fromARGB(255, 0, 66, 88),
+                                  ),
+                                  margin: const EdgeInsets.only(
+                                      left: 10, right: 10, bottom: 20),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      const Padding(padding: EdgeInsets.all(5)),
+                                      if (news['urlToImage'] != null)
+                                        Image.network(
+                                          news['urlToImage'],
+                                          height: 200,
+                                          width: 350,
+                                          fit: BoxFit.cover,
+                                        )
+                                      else
+                                        Image.asset(
+                                          'assets/images/brokeimages.png',
+                                          height: 200,
+                                          width: 350,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 10,
+                                              bottom: 20,
+                                              left: 15,
+                                              right: 10),
+                                          child: Text(
+                                            news['title'],
+                                            style: const TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                                fontSize: 16),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               );
                             },
