@@ -1,8 +1,9 @@
-// ignore_for_file: file_names, unnecessary_const, unused_import
+// ignore_for_file: file_names, unnecessary_const, unused_import, deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:qurama/Models/ModelNews.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key, required int currentIndex});
@@ -230,14 +231,13 @@ class _HomepageState extends State<Homepage> {
                             itemBuilder: (context, index) {
                               var news = newsList[index];
                               return GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          DetailSurah(news: news),
-                                    ),
-                                  );
+                                onTap: () async {
+                                  final url = news['url'];
+                                  if (await canLaunch(url)) {
+                                    await launch(url);
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
                                 },
                                 child: Container(
                                   height: 320,
